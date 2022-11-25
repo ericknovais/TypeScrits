@@ -4,12 +4,20 @@ export class Negociacao {
         public readonly quantidade: number,
         public readonly valor: number) { }
 
-    public get volume(): number {
+    get volume(): number {
         return this.quantidade * this.valor;
     }
 
-    public get data(): Date {
+    get data(): Date {
         const data = new Date(this._data.getTime());
         return data;
+    }
+
+    public static criaDe(dataString: string, quantidadeString: string, valorString: string): Negociacao {
+        const exp = /-/;
+        const date = new Date(dataString.replace(exp, ','));
+        const quantidade = parseInt(quantidadeString);
+        const valor = parseInt(valorString);
+        return new Negociacao(date, quantidade, valor);
     }
 }
