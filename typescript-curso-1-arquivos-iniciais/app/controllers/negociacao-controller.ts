@@ -35,4 +35,3 @@ export class NegociacaoController {
         this.inputData.focus();
     }
 }
-
