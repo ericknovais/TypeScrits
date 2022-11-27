@@ -14,9 +14,6 @@ export abstract class View<T> {
         }
     }
 
-    
-    @logarRempoDeExecucao(true)
-    @inspect()
     public update({ model }: { model: T; }): void {
         let template = this.template(model);
         this.elemento.innerHTML = template;
